@@ -8,17 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var firstFactor = 1
+    
+    let firstFactors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                Form {
+                    Section("Select first factor.") {
+                        Picker("First factor", selection: $firstFactor) {
+                            ForEach(firstFactors, id: \.self) { factor in
+                                Text("\(factor)")
+                            }
+                        }
+                    }
+                    
+                    Section("Section 2.") {
+                        
+                    }
+                    
+                    Section("Section 3.") {
+                        
+                    }
+                }
+                .navigationTitle("Game")
             }
-            .navigationTitle("Game")
-            .edgesIgnoringSafeArea(.all)
+
         }
 
     }
-}
 
 #Preview {
     ContentView()
