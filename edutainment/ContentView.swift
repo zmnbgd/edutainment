@@ -49,14 +49,22 @@ struct ContentView: View {
                     .navigationTitle("Edutainment")
                 }
             }
-            VStack {
+            VStack() {
                 Text("How much is it?")
-                HStack {
+                HStack(spacing: 20) {
                     ForEach(0..<3) { number in
-
+                        Button(action: {
+                            print("Button \(number) tapped.")
+                        }) {
+                            Text("\(number + 1)")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .frame(width: 60, height: 60) // Postavlja dimenzije dugmeta
+                                .background(Circle().fill(number == correctAnswer ? Color.green : Color.blue))
+                        }
                     }
                 }
-                .clipShape(Circle())
+//                .clipShape(Circle())
             }
         }
         
@@ -65,7 +73,7 @@ struct ContentView: View {
     
     
     func multiplicationResult(firstNumber: Int, secondNumber: Int) -> Int? {
-
+        
         return product
     }
     
