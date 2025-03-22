@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+struct offeredAnswers: View {
+    
+    var offeredNumber: String
+    
+    var body: some View {
+//        Image(offeredNumber)
+//            .clipShape(Circle())
+//            .overlay(Circle().stroke(Color.blue, lineWidth: 1))
+//            .shadow(radius: 10)
+//            .padding(5)
+        
+        Text(offeredNumber)
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .frame(width: 60, height: 60)
+            .background(Circle().fill(Color.blue))
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .shadow(radius: 10)
+            .padding(5)
+    }
+}
+
 struct ContentView: View {
     
 //    @State private var firstFactor = 1
@@ -93,23 +115,12 @@ struct ContentView: View {
                         Button {
                             correctAnswerTapped(number)
                         } label: {
-                            
+                            offeredAnswers(offeredNumber: "\(4 * 4)")
                         }
                     }
                 }
             }
         }
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -129,7 +140,6 @@ struct ContentView: View {
         
         showScore = true
     }
-    
     
 }
 
