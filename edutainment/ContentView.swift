@@ -17,11 +17,22 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
+                
                 //MARK: - Select First Factor
                 Section("Select multiplication table") {
                     Stepper(value: $selectedTable, in: 2...10) {
                         Text("Multiply \(selectedTable)")
                     }
+                }
+                
+                //MARK: Select Number Of Questions
+                Section("Select number of questions") {
+                    Picker("Questions number", selection: $numberOfQuestion) {
+                        ForEach(numberOfQuestions, id: \.self) { number in
+                            Text("\(number)")
+                        }
+                    }
+                    .pickerStyle(.segmented)
                 }
             }
             .navigationTitle("Edutainment")
