@@ -9,9 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selectedTable = 2
+    @State private var numberOfQuestion = 5
+    
+    let numberOfQuestions = [5, 10, 20]
+    
     var body: some View {
-        VStack {
-            
+        NavigationStack {
+            Form {
+                //MARK: - Select First Factor
+                Section("Select multiplication table") {
+                    Stepper(value: $selectedTable, in: 2...10) {
+                        Text("Multiply \(selectedTable)")
+                    }
+                }
+            }
+            .navigationTitle("Edutainment")
         }
     }
 }
@@ -19,3 +32,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
