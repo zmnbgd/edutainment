@@ -36,7 +36,19 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Edutainment")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: startGame) {
+                        Text("Start Game")
+                    }
+                }
+            }
         }
+    }
+    
+    //MARK: - Start Game Method
+    func startGame() {
+        
     }
 }
 
