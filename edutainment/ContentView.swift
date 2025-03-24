@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var selectedTable = 2
     @State private var numberOfQuestion = 5
     
+    @State private var userAnswer = ""
+    
     let numberOfQuestions = [5, 10, 20]
     
     var body: some View {
@@ -34,10 +36,17 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
                 // MARK: - Question
                 Section("Question") {
                     Text("How much is \(selectedTable) x \(selectedTable)")
                 }
+                
+                //MARK: - User Answer
+                Section("User Answer") {
+                    TextField("Enter your result here...", text: $userAnswer)
+                }
+                
             }
             .navigationTitle("Edutainment")
             .toolbar {
