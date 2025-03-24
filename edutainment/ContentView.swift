@@ -34,6 +34,10 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                // MARK: - Question
+                Section("Question") {
+                    Text("How much is \(selectedTable) x \(selectedTable)")
+                }
             }
             .navigationTitle("Edutainment")
             .toolbar {
