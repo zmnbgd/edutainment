@@ -47,6 +47,12 @@ struct ContentView: View {
                     TextField("Enter your result here...", text: $userAnswer)
                 }
                 
+                //MARK: - Submit Answer Button
+                Button("Sumbit answer") {
+                    checkAnswer()
+                }
+                .foregroundStyle(.red)
+                
             }
             .navigationTitle("Edutainment")
             .toolbar {
@@ -61,6 +67,11 @@ struct ContentView: View {
     
     //MARK: - Start Game Method
     func startGame() {
+        
+    }
+    
+    //MARK: - Check Answer Method
+    func checkAnswer() {
         
     }
 }
