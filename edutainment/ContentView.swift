@@ -13,6 +13,9 @@ struct ContentView: View {
     @State private var numberOfQuestion = 5
     
     @State private var userAnswer = ""
+    @State private var secondFactor = 0
+    @State private var correctAnswer = 0
+    @State private var score = 0
     
     let numberOfQuestions = [5, 10, 20]
     
@@ -39,7 +42,7 @@ struct ContentView: View {
                 
                 // MARK: - Question
                 Section("Question") {
-                    Text("How much is \(selectedTable) x \(selectedTable)")
+                    Text("How much is \(selectedTable) x \(secondFactor)")
                 }
                 
                 //MARK: - User Answer
@@ -67,12 +70,20 @@ struct ContentView: View {
     
     //MARK: - Start Game Method
     func startGame() {
-        
+        secondFactor = Int.random(in: 2...10)
+        correctAnswer = selectedTable * secondFactor
+        userAnswer = ""
     }
     
     //MARK: - Check Answer Method
     func checkAnswer() {
-        
+        if let userResult = Int(userAnswer) {
+            if userResult == correctAnswer {
+                score += 1
+            } else {
+                score -= 1
+            }
+        }
     }
 }
 
