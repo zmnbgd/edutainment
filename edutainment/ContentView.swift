@@ -48,7 +48,7 @@ struct ContentView: View {
                 }
                 
                 //MARK: - Submit Answer Button
-                Button("Sumbit answer") {
+                Button("Submit answer") {
                     checkAnswer()
                 }
                 .foregroundStyle(.red)
